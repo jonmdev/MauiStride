@@ -35,8 +35,13 @@ namespace MauiStride {
             absRoot.Add(testLabel);
 
             //STRIDE TEST
-            game = new();
-            game.Run(start: StartGame);
+            Task.Run(delegate {
+                game = new();
+                game.Run(start: StartGame);
+
+            });
+            
+            //Debug.WriteLine("FINISHED MAUI APP CONFIG"); //this causes unhandled exception
             
         }
         void StartGame(Scene rootScene) {
